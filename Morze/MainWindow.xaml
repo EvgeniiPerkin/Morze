@@ -1,0 +1,142 @@
+﻿<Window x:Class="Morze.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Morze"
+        mc:Ignorable="d"
+        Title="Генератор Азбуки Морзе" Height="400" Width="675" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+    <Grid Background="DarkCyan">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Скорость"
+                   Foreground="White"
+                   Margin="10"
+                   FontSize="14"
+                   Grid.Column="0"
+                   Grid.Row="0" 
+                   FontWeight="Bold"/>
+
+        <TextBox x:Name="txtValSpeed" 
+                 Text="{Binding Path=Abc.Speed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Margin="5"
+                 Padding="5"
+                 Width="50"
+                 FontSize="14"
+                 Grid.Column="1"
+                 Grid.Row="0" 
+                 FontWeight="Bold"/>
+        <Slider x:Name="SliderSpeed"
+                Grid.Column="2"
+                Grid.Row="0"
+                Value="{Binding Path=Abc.Speed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                Minimum="30" 
+                Maximum="150" 
+                SelectionStart="30" 
+                IsSnapToTickEnabled="True"
+                Width="500" 
+                Margin="5" 
+                TickPlacement="BottomRight"
+                TickFrequency="1"
+                IsSelectionRangeEnabled="True" />
+        <TextBlock Text="Частота"
+                   Foreground="White"
+                   Margin="10"
+                   FontSize="14"
+                   Grid.Column="0"
+                   Grid.Row="1" 
+                   FontWeight="Bold"/>
+        <TextBox x:Name="txtValFrequency"  
+                 Text="{Binding Path=Abc.Frequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5"
+                 Padding="5"
+                 Width="50"
+                 FontSize="14"
+                 Grid.Column="1"
+                 Grid.Row="1" 
+                 FontWeight="Bold"/>
+        <Slider x:Name="SliderFrequency"
+                Grid.Column="2"
+                Grid.Row="1"
+                Value="{Binding Path=Abc.Frequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                Minimum="200" 
+                Maximum="5000" 
+                SelectionStart="30" 
+                IsSnapToTickEnabled="True"
+                Width="500" 
+                Margin="5" 
+                TickPlacement="BottomRight"
+                TickFrequency="100"
+                IsSelectionRangeEnabled="True" />
+        <TextBlock Text="Шум"
+                   Foreground="White"
+                   Margin="10"
+                   FontSize="14"
+                   Grid.Column="0"
+                   Grid.Row="2" 
+                   FontWeight="Bold"/>
+        <TextBox x:Name="txtValNoise" 
+                 Text="{Binding Path=Abc.Noise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Margin="5"
+                 Padding="5"
+                 Width="50"
+                 FontSize="14"
+                 Grid.Column="1"
+                 Grid.Row="2" 
+                 FontWeight="Bold"/>
+        <Slider x:Name="SliderNoise"
+                Grid.Column="2"
+                Grid.Row="2"
+                Value="{Binding Path=Abc.Noise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                Minimum="0" 
+                Maximum="100" 
+                SelectionStart="0" 
+                IsSnapToTickEnabled="True"
+                Width="500" 
+                Margin="5" 
+                TickPlacement="BottomRight"
+                TickFrequency="1"
+                IsSelectionRangeEnabled="True" />
+        <TextBox x:Name="txtMessage"
+                 Text="{Binding Path=Abc.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap"
+                 Margin="5"
+                 Padding="5" 
+                 Width="640"
+                 SpellCheck.IsEnabled="True"
+                 Language="ru-ru"
+                 FontSize="14"
+                 Grid.Column="0"
+                 Grid.Row="3" 
+                 Grid.ColumnSpan="3"
+                 FontWeight="Bold"/>
+        <Button Grid.Column="0"
+                Command="{Binding Path=UpdateList}" 
+                Content="Старт"
+                Grid.Row="4"  
+                Grid.ColumnSpan="2"
+                Margin="5"/>
+        <TextBox Text="{Binding Path=Abc.DecodingText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap"
+                 Margin="5"
+                 Padding="5" 
+                 Width="300" 
+                 FontSize="14"
+                 Grid.Column="2"
+                 Grid.Row="4" 
+                 Grid.ColumnSpan="3"
+                 FontWeight="Bold"/>
+    </Grid>
+</Window>
