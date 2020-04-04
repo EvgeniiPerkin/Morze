@@ -33,7 +33,7 @@ namespace Morze
               (updateList = new RelayCommand(obj =>
               {
                   Abc.Test();
-
+                  Abc.Test();
                   //hello my frend
               }));
         }
